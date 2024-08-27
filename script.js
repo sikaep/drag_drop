@@ -1,6 +1,7 @@
 document.addEventListener("DOMContentLoaded", function() {
     const tiles = document.querySelectorAll(".tile");
     const droppables = document.querySelectorAll(".droppable");
+    const tilesContainer = document.querySelector(".tiles");
     let draggedTile = null;
 
     tiles.forEach(tile => {
@@ -46,7 +47,7 @@ document.addEventListener("DOMContentLoaded", function() {
                     const wrongTile = drop.querySelector(".tile");
 
                     // Move wrong tile back to the original tiles area
-                    document.querySelector(".tiles").appendChild(wrongTile);
+                    tilesContainer.appendChild(wrongTile);
                     wrongTile.style.backgroundColor = "#3498db"; // Reset tile color to original
                 }
             }
