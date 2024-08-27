@@ -3,36 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Drag and Drop Puzzle</title>
+    <title>Comparatives and Superlatives</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div class="container">
-        <h1>Drag and Drop Puzzle</h1>
+        <h1>Comparatives and Superlatives</h1>
 
         <!-- Tiles Container on Top -->
         <div class="tiles">
             <div class="tile" draggable="true" data-value="A">tile A</div>
             <div class="tile" draggable="true" data-value="B">tile B</div>
             <div class="tile" draggable="true" data-value="C">tile C</div>
-                        <div class="tile" draggable="true" data-value="d">tile d</div>
-            <div class="tile" draggable="true" data-value="e">tile e</div>
-            <div class="tile" draggable="true" data-value="f">tile f</div>
+            <div class="tile" draggable="true" data-value="D">tile d</div>
+            <div class="tile" draggable="true" data-value="E">tile e</div>
+            <div class="tile" draggable="true" data-value="F">tile f</div>
         </div>
 
-        <!-- Table with Blanks Below -->
-        <table>
-            <tr>
-                <td class="droppable" data-answer="A"></td>
-                <td class="droppable" data-answer="B"></td>
-                <td class="droppable" data-answer="C"></td>
-            </tr>
-                        <tr>
-                <td class="droppable" data-answer="d"></td>
-                <td class="droppable" data-answer="e"></td>
-                <td class="droppable" data-answer="f"></td>
-            </tr>
-        </table>
+
+        <!-- Sentences with Blanks -->
+        <div class="sentences">
+            <p>What we call <span class="droppable" data-answer="C"></span> favourites.</p>
+            <p>The letter <span class="droppable" data-answer="B"></span> comes after A.</p>
+            <p>This is letter <span class="droppable" data-answer="A"></span>.</p>
+        </div>
 
         <button id="submit">Submit</button>
     </div>
