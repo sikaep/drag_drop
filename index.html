@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drag and Drop Puzzle</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Drag and Drop Puzzle</h1>
+        <table>
+            <tr>
+                <td class="droppable" data-answer="A"></td>
+                <td class="droppable" data-answer="B"></td>
+                <td class="droppable" data-answer="C"></td>
+            </tr>
+        </table>
+        <div class="tiles">
+            <div class="tile" draggable="true" data-value="A">A</div>
+            <div class="tile" draggable="true" data-value="B">B</div>
+            <div class="tile" draggable="true" data-value="C">C</div>
+        </div>
+        <button id="submit">Submit</button>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
