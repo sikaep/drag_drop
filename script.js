@@ -1,8 +1,25 @@
 document.addEventListener("DOMContentLoaded", function() {
-    const tiles = document.querySelectorAll(".tile");
-    const droppables = document.querySelectorAll(".droppable");
     const tilesContainer = document.querySelector(".tiles");
+    const tiles = Array.from(document.querySelectorAll(".tile"));
+    const droppables = document.querySelectorAll(".droppable");
     let draggedTile = null;
+
+    // Shuffle tiles array
+    function shuffle(array) {
+        for (let i = array.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [array[i], array[j]] = [array[j], array[i]];
+        }
+        return array;
+    }
+
+    // Clear and append shuffled tiles
+    function renderShuffledTiles() {
+        const shuffledTiles = shuffle(tiles);
+        shuffledTiles.forEach(tile => tilesContainer.appendChild(tile));
+    }
+
+    renderShuffledTiles(); // Render tiles in random order
 
     tiles.forEach(tile => {
         tile.addEventListener("dragstart", function() {
@@ -34,7 +51,7 @@ document.addEventListener("DOMContentLoaded", function() {
             e.preventDefault();
             drop.classList.remove("over");
 
-            if (!drop.innerHTML) { // Only drop if the cell is empty
+            if (!drop.innerHTML) { // Only drop if the span is empty
                 drop.appendChild(draggedTile);
             }
         });
@@ -43,23 +60,4 @@ document.addEventListener("DOMContentLoaded", function() {
     document.getElementById("submit").addEventListener("click", function() {
         droppables.forEach(drop => {
             const answer = drop.getAttribute("data-answer");
-            const value = drop.querySelector(".tile")?.getAttribute("data-value");
-
-            if (answer === value) {
-                drop.classList.add("correct");
-                drop.querySelector(".tile").style.backgroundColor = "#2ecc71"; // Correct tile color
-            } else {
-                if (drop.querySelector(".tile")) {
-                    const wrongTile = drop.querySelector(".tile");
-
-                    // Move wrong tile back to the original tiles area
-                    tilesContainer.appendChild(wrongTile);
-                    wrongTile.style.backgroundColor = "#3498db"; // Reset tile color to original
-
-                    // Reset the drag functionality
-                    wrongTile.style.display = "block"; 
-                }
-            }
-        });
-    });
-});
+            const value = drop.querySelector(
