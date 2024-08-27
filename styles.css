@@ -1,0 +1,62 @@
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #f7f7f7;
+}
+
+.container {
+    text-align: center;
+}
+
+table {
+    margin: 20px auto;
+    border-collapse: collapse;
+}
+
+td {
+    width: 100px;
+    height: 100px;
+    border: 2px solid #000;
+    background-color: #fff;
+    text-align: center;
+    vertical-align: middle;
+    font-size: 24px;
+}
+
+.tiles {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.tile {
+    width: 100px;
+    height: 100px;
+    background-color: #3498db;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    cursor: grab;
+}
+
+.tile:active {
+    cursor: grabbing;
+}
+
+button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.droppable.over {
+    border-color: #2ecc71;
+    background-color: #ecf0f1;
+}
