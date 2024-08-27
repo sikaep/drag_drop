@@ -7,10 +7,16 @@ document.addEventListener("DOMContentLoaded", function() {
     tiles.forEach(tile => {
         tile.addEventListener("dragstart", function() {
             draggedTile = tile;
+            setTimeout(() => {
+                tile.style.display = "none"; // Hide the tile during dragging
+            }, 0);
         });
 
         tile.addEventListener("dragend", function() {
-            draggedTile = null;
+            setTimeout(() => {
+                draggedTile.style.display = "block"; // Show the tile after dragging
+                draggedTile = null;
+            }, 0);
         });
     });
 
@@ -49,6 +55,9 @@ document.addEventListener("DOMContentLoaded", function() {
                     // Move wrong tile back to the original tiles area
                     tilesContainer.appendChild(wrongTile);
                     wrongTile.style.backgroundColor = "#3498db"; // Reset tile color to original
+
+                    // Reset the drag functionality
+                    wrongTile.style.display = "block"; 
                 }
             }
         });
