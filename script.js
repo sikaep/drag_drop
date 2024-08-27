@@ -27,7 +27,7 @@ document.addEventListener("DOMContentLoaded", function() {
             e.preventDefault();
             drop.classList.remove("over");
 
-            if (!drop.innerHTML) { // Only drop if empty
+            if (!drop.innerHTML) { // Only drop if the cell is empty
                 drop.appendChild(draggedTile);
             }
         });
@@ -40,12 +40,14 @@ document.addEventListener("DOMContentLoaded", function() {
 
             if (answer === value) {
                 drop.classList.add("correct");
+                drop.querySelector(".tile").style.backgroundColor = "#2ecc71"; // Correct tile color
             } else {
                 if (drop.querySelector(".tile")) {
-                    drop.querySelector(".tile").style.backgroundColor = "red";
-                    setTimeout(() => {
-                        drop.querySelector(".tile").remove();
-                    }, 1000);
+                    const wrongTile = drop.querySelector(".tile");
+
+                    // Move wrong tile back to the original tiles area
+                    document.querySelector(".tiles").appendChild(wrongTile);
+                    wrongTile.style.backgroundColor = "#3498db"; // Reset tile color to original
                 }
             }
         });
