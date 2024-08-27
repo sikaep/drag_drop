@@ -38,7 +38,7 @@ body {
 table {
     margin: 20px auto;
     border-collapse: collapse;
-    width: 80%;
+    width: 100%;
 }
 
 td {
@@ -54,7 +54,7 @@ td {
 
 .droppable {
     display: inline-block;
-    width: 50px;
+    width: 70px;
     height: 30px;
     border: 2px dashed #ccc;
     text-align: center;
